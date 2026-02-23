@@ -1,5 +1,8 @@
+# Image_Acqusition-_using_Web_Camera
+## Name: MUKESH.D
+## Register no:212224040204
 
-Aim:
+## Aim:
  
 To write a python program using OpenCV to capture the image from the web camera and do the following image manipulations.
 i) Write the frame as JPG 
@@ -11,72 +14,146 @@ iv) Rotate and display the video
 Anaconda - Python 3.7
 ## Algorithm
 ### Step 1:
-<br>
+Import OpenCV Package.
 
 ### Step 2:
-<br>
+Capture Video from Webcam. Use VideoCapture(0) to access the webcam and start capturing video.
 
 ### Step 3:
-<br>
+Read Video or Image. Utilize 'imread' to read a video frame or image from the webcam.
 
 ### Step 4:
-<br>
+Save Image to File. Employ 'imwrite' to save the captured image to a file.
 
 ### Step 5:
-<br>
+Display Video or Image. Use 'imshow' to display the captured video frame or image.
+
+### Step 6:
+End Program with 'q'. Allow the program to be terminated by pressing the 'q' key.
+
 
 ## Program:
-``` Python
-### Developed By:
-### Register No:
+### Developed By: S.T.DHANAAAKHAASH
+### Register No: 212224240032
+
 
 ## i) Write the frame as JPG file
 
+```
+import cv2
+import matplotlib.pyplot as plt
+from IPython.display import clear_output
+import time
+cap = cv2.VideoCapture(0)
+ret, frame = cap.read()
+if ret:
+    cv2.imwrite("Sharon.jpg", frame)
+cap.release()
+captured_image = cv2.imread('Sharon.jpg')
+plt.imshow(captured_image[:,:,::-1])
+plt.axis('off')
+plt.show()
 
+```
 
 
 ## ii) Display the video
 
+```
+cap = cv2.VideoCapture(0)
 
+for i in range(50):
+    ret, frame = cap.read()
+    if not ret:
+        break
+    frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    clear_output(wait=True)
+    plt.imshow(frame_rgb)
+    plt.axis('off')
+    plt.show()
+    time.sleep(0.05)
+
+cap.release()
+```
 
 
 ## iii) Display the video by resizing the window
 
+```
 
+cap = cv2.VideoCapture(0)
+
+for i in range(50):
+    ret, frame = cap.read()
+    if not ret:
+        break
+    resized_frame = cv2.resize(frame, (100, 150))  # Resize to 320x240
+    frame_rgb = cv2.cvtColor(resized_frame, cv2.COLOR_BGR2RGB)
+    clear_output(wait=True)
+    plt.imshow(frame_rgb)
+    plt.axis('off')
+    plt.show()
+    time.sleep(0.05)
+
+cap.release()
+  
+
+```
 
 
 ## iv) Rotate and display the video
 
-
-
-
-
-
-
-
-
 ```
+cap = cv2.VideoCapture(0)
+
+for i in range(50):
+    ret, frame = cap.read()
+    if not ret:
+        break
+    rotated_frame = cv2.rotate(frame, cv2.ROTATE_90_CLOCKWISE)
+    frame_rgb = cv2.cvtColor(rotated_frame, cv2.COLOR_BGR2RGB)
+    clear_output(wait=True)
+    plt.imshow(frame_rgb)
+    plt.axis('off')
+    plt.show()
+    time.sleep(0.05)
+
+cap.release() 
+```
+
 ## Output
 
 ### i) Write the frame as JPG image
-</br>
-</br>
+
+<img width="635" height="477" alt="image" src="https://github.com/user-attachments/assets/43990967-f9bf-4ffd-a4d7-6c3a2032b505" />
+
+
+
+
+
 
 
 ### ii) Display the video
-</br>
-</br>
+
+<img width="641" height="488" alt="image" src="https://github.com/user-attachments/assets/2619b6cc-d6aa-4a3e-a119-70c852444ff5" />
+
+
+
 
 
 ### iii) Display the video by resizing the window
-</br>
-</br>
+
+
+<img width="361" height="487" alt="image" src="https://github.com/user-attachments/assets/d54c16dd-08bf-46bb-94c0-b844d21af54a" />
+
 
 
 
 ### iv) Rotate and display the video
-</br>
-</br>
+
+<img width="370" height="476" alt="image" src="https://github.com/user-attachments/assets/a075ea8a-ac6c-4ea7-bddf-6198a6871d7b" />
+
+
 
 
 
